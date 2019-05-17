@@ -9,13 +9,13 @@ class BillboardsController < ApplicationController
   end
 
   def new
-    @billboard = Billboards.new
+    @billboard = Billboard.new
   end
 
   def create 
     @billboard = Billboard.new(billboard_params)
     if @billboard.save
-      redirect_to @billboard
+      redirect_to billboards_path
     else 
       render :new
     end
@@ -34,7 +34,7 @@ class BillboardsController < ApplicationController
 
   def destroy
     @billboard.destroy
-    redirect_to billboards_path
+    redirect_to root_path
   end
 
   private
@@ -44,6 +44,6 @@ class BillboardsController < ApplicationController
   end
 
   def billboard_params
-    params.require(:title).permit(:title)
+    params.require(:billboard).permit(:title)
   end
 end

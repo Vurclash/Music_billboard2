@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'billboards#create'
+  root 'billboards#index'
 
   resources :billboards
 end

@@ -1,2 +1,10 @@
-<h1>Billboards#show</h1>
-<p>Find me in app/views/billboards/show.html.erb</p>
+<div class="ui card">
+  <div class="content">
+    <p class="header"> 
+      <%= @billboard.title %>
+    </p>
+    
+  </div>
+  <%= link_to "View Billboards", billboards_path %>
+  <%= link_to "Edit This Billboard", edit_billboard_path(@billboard)%>
+</div>
