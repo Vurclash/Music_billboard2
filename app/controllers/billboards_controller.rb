@@ -2,7 +2,7 @@ class BillboardsController < ApplicationController
   before_action :set_billboard, only: [:edit, :show, :destroy, :update]
 
   def index
-    @billboard = Billboards.all
+    @billboard = Billboard.all
   end
 
   def show
@@ -13,9 +13,9 @@ class BillboardsController < ApplicationController
   end
 
   def create 
-    @billboard = Billboards.new(billboard_params)
+    @billboard = Billboard.new(billboard_params)
     if @billboard.save
-      redirect_to billboards_path
+      redirect_to @billboard
     else 
       render :new
     end
@@ -29,6 +29,7 @@ class BillboardsController < ApplicationController
       redirect_to @billboard
     else
       render :edit
+    end
   end
 
   def destroy
@@ -40,8 +41,9 @@ class BillboardsController < ApplicationController
 
   def set_billboard
     @billboard = Billboard.find(params[:id])
+  end
 
   def billboard_params
-    params.require(:billboard).permit(:title)
+    params.require(:title).permit(:title)
   end
 end
